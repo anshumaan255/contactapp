@@ -12,7 +12,7 @@ const ContactCard = (props) => {
           <img className="ui avatar image" src={user} alt="user" />
         </div>
         <div>
-          <div className="contact" style={{ marginLeft: '20px' }}>
+          <div className="contact" style={{ marginLeft: '10px' }}>
             <p style={{ fontWeight: 'bold', margin: '0' }}>{name}</p>
             <p style={{ fontWeight: 'thin', margin: '0' }}>{email}</p>
           </div>
