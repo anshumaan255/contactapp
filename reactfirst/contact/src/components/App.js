@@ -1,9 +1,9 @@
 import './App.css';
-import React, {useState, useEffect, useInsertionEffect} from "react";
-import {uuid} from 'uuidv4'; 
+import React, {useState, useEffect } from "react";
 import Header from "./Header";
 import AddContact from "./AddContact";
-import ContactList from "./contactList"; 
+import ContactList from "./contactList";
+import { Link } from 'react-router-dom';
 
 function App() {
    const LOCAL_STORAGE_KEY = "contacts";
@@ -18,6 +18,8 @@ function App() {
      const newContactList = contacts.filter((contact) => {
       return contact.id !== id;
      });
+
+     setContacts(newContactList); 
    }
    useEffect(() => {
      const retriveContacts = JSON.parse( localStorage.getItem(LOCAL_STORAGE_KEY ));
@@ -29,9 +31,12 @@ function App() {
    }, [contacts]);
   return (
     <div className="ui container">
+      <nav style={{ marginTop: "50px" }}>
+        <Link to="/contacts"> Contacts </Link>
+      </nav>
       <Header />
       <AddContact addContactHandler={addContactHandler} />
-      <ContactList contacts ={contacts} getContactId={removeContactHandler}/>
+      <ContactList contacts ={contacts} />
     </div>
   );
    
