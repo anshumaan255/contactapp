@@ -1,8 +1,9 @@
 import './App.css';
-import React, {useState, useEffect, useInsertionEffect} from "react";
+import React, {useState, useEffect } from "react";
 import Header from "./Header";
 import AddContact from "./AddContact";
-import ContactList from "./contactList"; 
+import ContactList from "./contactList";
+import { Link } from 'react-router-dom';
 
 function App() {
    const LOCAL_STORAGE_KEY = "contacts";
@@ -22,6 +23,9 @@ function App() {
    }, [contacts]);
   return (
     <div className="ui container">
+      <nav style={{ marginTop: "50px" }}>
+        <Link to="/contacts"> Contacts </Link>
+      </nav>
       <Header />
       <AddContact addContactHandler={addContactHandler} />
       <ContactList contacts ={contacts} />
