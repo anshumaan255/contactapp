@@ -1,5 +1,6 @@
 import './App.css';
 import React, {useState, useEffect } from "react";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./contactList";
@@ -35,9 +36,13 @@ function App() {
       <nav style={{ marginTop: "50px" }}>
         <Link to="/contacts"> Contacts </Link>
       </nav>
+      <Router>
       <Header />
-      <AddContact addContactHandler={addContactHandler} />
-      <ContactList contacts ={contacts} clickHandler={(id) => removeContactHandler(id)} />
+      <Route path="/add" componnt = {AddContact} />
+      <Route path="/" component={ContactList} />
+      {/* <AddContact addContactHandler={addContactHandler} />
+      <ContactList contacts ={contacts} clickHandler={(id) => removeContactHandler(id)} /> */}
+      </Router>
     </div>
   );
    
